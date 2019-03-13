@@ -1,0 +1,28 @@
+﻿@model List<student>
+
+
+@{
+    ViewData["Title"] = "Student List";
+}
+
+<h1>List of All Students</h1>
+<div class="row">
+    @foreach (var item in @Model)
+    {
+        <div class="card col-3">
+            <div class="card-body">
+                <h5 class="card-title">@item.name @item.surname </h5>
+                <h5 class="card-title">@item.departmentId
+               </h5>
+
+
+
+                <a asp-controller="students" asp-action="Detay" asp-route-id="@item.Id" class="btn btn-warning">Detail</a>
+                <a asp-controller="students" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Edit</a>
+            </div>
+        </div>
+    }
+
+
+</div>
+

@@ -1,0 +1,21 @@
+﻿@model student
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Student details</h1>
+<div class="container">
+<div class="row">
+    <div class="col-4 alert-success"> Student Name</div>
+    <div class="col-4 alert-secondary"> @Model.name @Model.surname </div>
+</div>
+<div class="row">
+    <div class="col-4 alert-success"> Student Number</div>
+    <div class="col-4 alert-secondary"> @Model.studentid </div>
+</div>
+<div class="row">
+    <div class="col-4 alert-success"> Student Mail</div>
+    <div class="col-4 alert-secondary"> @Model.email </div>
+</div>
+    </div>
+
