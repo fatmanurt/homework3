@@ -12,8 +12,9 @@
         <div class="card col-3">
             <div class="card-body">
                 <h5 class="card-title">@item.name @item.surname </h5>
-                <h5 class="card-title">@item.departmentId
-               </h5>
+                <h5 class="card-title">
+                    @Html.DisplayFor(modelItem => item.department.Name)
+                            </h5>
 
 
 
