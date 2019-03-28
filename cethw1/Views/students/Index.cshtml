@@ -5,16 +5,18 @@
     ViewData["Title"] = "Student List";
 }
 
-<h1>List of All Students</h1>
+<h3>List of All Students</h3>
+<p></p>
+<p></p>
 <div class="row">
     @foreach (var item in @Model)
     {
         <div class="card col-3">
             <div class="card-body">
-                <h5 class="card-title">@item.name @item.surname </h5>
+                <h5 class="alert alert-secondary" role="alert">@item.name @item.surname </h5>
                 <h5 class="card-title">
                     @Html.DisplayFor(modelItem => item.department.Name)
-                            </h5>
+                </h5>
 
 
 
