@@ -120,20 +120,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </script>
     <!-- //Meta tag Keywords -->
     <!-- Custom-Files -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
     <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" />
     <!-- Style-CSS -->
     <!-- font-awesome-icons -->
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/font-awesome.css" rel="stylesheet">
     <!-- //font-awesome-icons -->
     <!-- /Fonts -->
-    <link href="//fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700" rel="stylesheet">
+    <link href="~//fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700" rel="stylesheet">
     <!-- //Fonts -->
 </head>
 
 <body>
- 
+
     <!-- //header -->
     <header class="py-sm-3 pt-3 pb-2" id="home">
         <div class="container">
@@ -151,8 +151,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                 </div>
                 <div class="forms mt-md-0 mt-2">
-                    <a href="login.html" class="btn"><span class="fa fa-user-circle-o"></span> Sign In</a>
-                    <a href="register.html" class="btn"><span class="fa fa-pencil-square-o"></span> Sign Up</a>
+                    <a href="" class="btn"><span class="fa fa-user-circle-o"></span> Sign In</a>
+                    <a href="" class="btn"><span class="fa fa-pencil-square-o"></span> Sign Up</a>
                 </div>
             </div>
             <nav class="text-center">
@@ -161,6 +161,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <ul class="menu">
                     <li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-controller="students" asp-action="Index">Student List</a></li>
+                    <li>
+                        <a asp-controller="students" asp-action="Create"> Create Student</a>
+                    </li>
+                   
                     <li>
                         <!-- First Tier Drop Down -->
                         <label for="drop-2" class="toggle">
@@ -174,10 +178,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </ul>
                     </li>
 
-                    
+
                     <li>
                         <a asp-controller="department" asp-action="Index"> List of departments</a>
                     </li>
+
+
                 </ul>
             </nav>
             <!-- //nav -->
@@ -185,21 +191,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </header>
     <!-- //header -->
 
-    <div class="main-content" id="home">
+    @*<div class="main-content" id="home">
         <div class="overlay">
             <!-- //header -->
             <div class="container">
-               
+
                 <!-- /banner -->
                 <div class="banner-info text-left">
-                   
-                    <div class="container">
 
-                        <partial name="_CookieConsentPartial" />
-                        <main role="main" class="pb-3">
-                            @RenderBody()
-                        </main>
-                    </div>
+                    
                     <p class="my-3"></p>
 
                 </div>
@@ -207,22 +207,40 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
             <!-- //banner -->
         </div>
-    </div>
+    </div>*@
 
     <!--// mian-content -->
     <!-- //about -->
-   
+    <section class="banner-bottom py-5">
+        <div class="container py-md-5">
+            <div class="row banner-grids mb-lg-5">
+
+
+                <div class="col-lg-7 content-right">
+
+
+                            @RenderBody()
+                     
+                   
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
     <!-- /about -->
     <!-- /services -->
-
     <!-- //last-content -->
     <!-- /team-content -->
-
     <!-- //team-content -->
     <!--/testimonials -->
     <!--//testimonials -->
     <!-- footer -->
-
     <!-- //footer -->
     <div class="copy-right py-2">
         <div class="container-fluid inner-sec-w3ls">

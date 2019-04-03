@@ -4,15 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using cethw1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+
+using Microsoft.AspNetCore.Http;
+using System.IO;
+
 
 namespace cethw1.Controllers
 {
     public class studentsController : Controller
     {
         stcontext Stcontext;
-        public studentsController(stcontext context)
+    
+        private readonly IHostingEnvironment _hostingEnvironment;
+
+      
+        public studentsController(stcontext context, IHostingEnvironment hostingEnvironment)
         {
             Stcontext = context;
+            _hostingEnvironment = hostingEnvironment;
 
         }
         public IActionResult Index()
@@ -26,19 +36,34 @@ namespace cethw1.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(student book)
+        public IActionResult Create(student book, IFormFile FileUrl)
         {
             if (ModelState.IsValid)
             {
-                Stcontext.Books.Add(book);
+                string dirPath = Path.Combine(_hostingEnvironment.WebRootPath, @"uploads\");
+                var fileName = Guid.NewGuid().ToString().Replace("-", "") + "_" + FileUrl.FileName;
+                using (var fileStream = new FileStream(dirPath + fileName, FileMode.Create))
+                {
+                     FileUrl.CopyTo(fileStream);
+                }
+
+               book.ImageUrl = fileName;
+               Stcontext.Add(book);
                 Stcontext.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
+
+                //Stcontext.Books.Add(book);
+                //Stcontext.SaveChanges();
+                //return RedirectToAction("Index");
             }
             else
             {
                 return View(book);
             }
         }
+
+       
+
         public IActionResult Edit(int? id)
         {
             if (!id.HasValue)

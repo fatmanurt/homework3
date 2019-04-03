@@ -4,18 +4,37 @@
 }
 
 <h1>Student details</h1>
-<div class="container">
-<div class="row">
-    <div class="col-4 alert-success"> Student Name</div>
-    <div class="col-4 alert-secondary"> @Model.name @Model.surname </div>
-</div>
-<div class="row">
-    <div class="col-4 alert-success"> Student Number</div>
-    <div class="col-4 alert-secondary"> @Model.studentid </div>
-</div>
-<div class="row">
-    <div class="col-4 alert-success"> Student Mail</div>
-    <div class="col-4 alert-secondary"> @Model.email </div>
-</div>
+ <div class="container">
+    <div class="col">
+        <div class="item col-lg-4">
+            <div class="thumbnail card">
+                <div class="img-event">
+                    <img class="group list-group-image img-fluid" src="~/uploads/@Model.ImageUrl" alt="" />
+                </div>
+
+            </div>
+        </div>
     </div>
+      </div>
+      
+ <div class="col">
+
+     <p class=""> DETAILS OF THE STUDENT</p>
+     <div class="row">
+         <div class="col-5 alert-success"> Student Name</div>
+         <div > @Model.name @Model.surname </div>
+     </div>
+     <div class="row">
+         <div class="col-5 alert-success"> Student Number</div>
+         <div > @Model.studentid </div>
+     </div>
+     <div class="row">
+         <div class="col-5 alert-success"> Student Mail</div>
+         <div > @Model.email </div>
+     </div>
+     <div class="row">
+         <div class="col-10 alert-success"> CV</div>
+         <div > @Model.Content </div>
+     </div>
+ </div>
 

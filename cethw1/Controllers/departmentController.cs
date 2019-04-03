@@ -62,6 +62,7 @@ namespace cethw1.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(dep);
+              
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

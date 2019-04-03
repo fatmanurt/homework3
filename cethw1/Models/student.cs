@@ -12,9 +12,15 @@ namespace cethw1.Models
         public string surname { get; set; }
         public int studentid { get; set; }
         public string email{ get; set; }
-       
+
+        public string Content { get; set; }
+
+        public string ImageUrl { get; set; }
+
 
         public int departmentId { get; set; }
+        
+        
         public department department { get; set; }
     }
 }
